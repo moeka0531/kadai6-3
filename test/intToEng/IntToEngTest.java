@@ -5,10 +5,14 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.*;
+
+import org.junit.Test;
+
 public class IntToEngTest {
 
 	@Test
-	public void ãƒ†ã‚¹ãƒˆ1å›ç›®_0ã‹ã‚‰20ã¾ã§() {
+	public void ƒeƒXƒg1‰ñ–Ú_0‚©‚ç20‚Ü‚Å() {
 		IntToEng ite = new IntToEng();
 		String s[] = { "zero", "one", "two", "three", "four", "five", "six",
 				"seven", "eight", "nine", "ten", "eleven", "twelve",
@@ -22,7 +26,7 @@ public class IntToEngTest {
 	}
 
 	@Test
-	public void ãƒ†ã‚¹ãƒˆ2å›ç›®_100ã¾ã§() {
+	public void ƒeƒXƒg2‰ñ–Ú_100‚Ü‚Å() {
 		IntToEng ite = new IntToEng();
 		String expected = "";
 		String act = "";
@@ -46,7 +50,7 @@ public class IntToEngTest {
 	}
 
 	@Test
-	public void ãƒ†ã‚¹ãƒˆ3å›ç›®_999ã¾ã§() {
+	public void ƒeƒXƒg3‰ñ–Ú_999‚Ü‚Å() {
 		IntToEng ite = new IntToEng();
 		String expected = "";
 		int num = 0;
@@ -58,9 +62,9 @@ public class IntToEngTest {
 		String s3[] = { "", "ten", "eleven", "twelve", "thirteen", "fourteen",
 				"fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
 
-		for (int i = 0; i <= 9; i++) { // 100ã®ä½
-			for (int k = 0; k <= 9; k++) { // 10ã®ä½
-				for (int l = 0; l <= 9; l++) { // 1ã®ä½
+		for (int i = 0; i <= 9; i++) { // 100‚ÌˆÊ
+			for (int k = 0; k <= 9; k++) { // 10‚ÌˆÊ
+				for (int l = 0; l <= 9; l++) { // 1‚ÌˆÊ
 					expected = "";
 
 					if (i > 0)
@@ -92,7 +96,7 @@ public class IntToEngTest {
 	}
 
 	@Test
-	public void ãƒ†ã‚¹ãƒˆ4å›ç›®_9999ã¾ã§() {
+	public void ƒeƒXƒg4‰ñ–Ú_9999‚Ü‚Å() {
 		IntToEng ite = new IntToEng();
 		String expected = "";
 		int num = 0;
@@ -106,12 +110,12 @@ public class IntToEngTest {
 				"fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
 
 		for (int h = 0; h <= 9; h++)
-			// 1000ã®ä½
+			// 1000‚ÌˆÊ
 			for (int i = 0; i <= 9; i++)
-				// 100ã®ä½
+				// 100‚ÌˆÊ
 				for (int k = 0; k <= 9; k++)
-					// 10ã®ä½
-					for (int l = 0; l <= 9; l++) { // 1ã®ä½
+					// 10‚ÌˆÊ
+					for (int l = 0; l <= 9; l++) { // 1‚ÌˆÊ
 						expected = "";
 						if (h > 0) {
 							if (h >= 2)
@@ -145,7 +149,7 @@ public class IntToEngTest {
 	}
 
 	@Test
-	public void ãƒ†ã‚¹ãƒˆãŠã¾ã‘_ä¸€ä¸‡ä»¥ä¸Šã‚’é©å½“ã«() {
+	public void ƒeƒXƒg‚¨‚Ü‚¯_ˆê–œˆÈã‚ğ“K“–‚É() {
 		IntToEng ite = new IntToEng();
 		
 		String t = ite.translateEng(992301);
@@ -153,5 +157,32 @@ public class IntToEngTest {
 		assertThat(t, is(expected));
 		
 	}
+	
+	@Test
+	public void •S–œ‚Ì’²¸() {
+		IntToEng ite = new IntToEng();
+	
+		String t = ite.translateEng(1000000);
+		String expected = "one million";
+		assertThat(t, is(expected));
+	}
+	
+	@Test
+	public void •S–œ\‚Ì’²¸() {
+		IntToEng ite = new IntToEng();
+		String t = ite.translateEng(1000010);
+		String expected = "one million and ten";
+		assertThat(t, is(expected));
+	}
+	
+	@Test
+	public void •S–œ‹ã\‹ã‚Ì’²¸() {
+		IntToEng ite = new IntToEng();
+		String t = ite.translateEng(1000099);
+		String expected = "one million and ninety nine";
+		assertThat(t, is(expected));
+	}
+	
+	
 
 }
